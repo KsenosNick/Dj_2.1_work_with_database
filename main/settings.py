@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+from .config import user, password
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -54,6 +56,8 @@ DATABASES = {
         'NAME': 'netology_import_phones',
         'HOST': '127.0.0.1',
         'PORT': '5432',
+        'USER': user,
+        'PASSWORD': password
     }
 }
 
@@ -123,3 +127,8 @@ try:
     from .settings_local import *
 except ImportError:
     pass
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
+
+MEDIA_URL = '/images/'
